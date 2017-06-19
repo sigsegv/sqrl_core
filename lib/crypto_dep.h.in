@@ -1,0 +1,6 @@
+#ifndef SQRL_CRYPTO_DEP_H
+#define SQRL_CRYPTO_DEP_H
+
+#include <${LIBSODIUM_INCLUDE}>
+
+#endif

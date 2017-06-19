@@ -1,0 +1,21 @@
+FIND_LIBRARY(COREFOUNDATION_LIBRARY CoreFoundation )
+FIND_LIBRARY(CORESERVICES_LIBRARY CoreServices)
+if (NOT COREFOUNDATION_LIBRARY)
+    message(FATAL_ERROR "CoreFoundation not found")
+endif()
+if (NOT CORESERVICES_LIBRARY)
+    message(FATAL_ERROR "CoreServices not found")
+endif()
+
+file(GLOB_RECURSE SRC *.c)
+#file(GLOB_RECURSE HDR *.h)
+
+#include_directories(
+#	${CMAKE_CURRENT_SOURCE_DIR}
+#)
+
+#add_library(${PROJECT_NAME}_net STATIC ${HDR} ${SRC} )
+#target_link_libraries(${PROJECT_NAME} ${COREFOUNDATION_LIBRARY} ${CORESERVICES_LIBRARY})
+
+set(LIB_SOURCE ${LIB_SOURCE} ${CMAKE_CURRENT_SOURCE_DIR}/net/apple/network_apple.c)
+set(STATIC_LIBS ${STATIC_LIBS} ${COREFOUNDATION_LIBRARY} ${CORESERVICES_LIBRARY})
